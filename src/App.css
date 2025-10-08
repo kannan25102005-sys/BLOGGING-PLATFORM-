@@ -1,0 +1,112 @@
+/* App.css - Global styles for the App component (navigation and layout) */
+
+/* Reset and base styles for the entire app */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; /* Consistent font stack with other components */
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa; /* Light background to match login/signup */
+}
+
+/* Navigation bar */
+.app-nav {
+  padding: 12px 20px; /* Slightly more horizontal padding for breathing room */
+  border-bottom: 1px solid #ddd;
+  background-color: #fff; /* White background for contrast */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers the nav content */
+  position: sticky; /* Sticks to top on scroll for better UX */
+  top: 0;
+  z-index: 1000; /* Ensures it stays on top */
+}
+
+/* Navigation links */
+.nav-link {
+  text-decoration: none;
+  color: #007bff; /* Blue color to match other components (e.g., read links in Home) */
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 8px 12px; /* Adds clickable area */
+  border-radius: 6px;
+  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth hover transition */
+  margin: 0 4px; /* Space between links */
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #0056b3; /* Darker blue on hover/focus */
+  background-color: rgba(0, 123, 255, 0.1); /* Subtle background highlight */
+  text-decoration: underline; /* Underline for accessibility on hover */
+}
+
+/* Active link (optional: if you want to highlight the current route) */
+/* You can add this dynamically in JSX if needed, e.g., using NavLink from react-router-dom */
+.nav-link.active {
+  color: #fff;
+  background-color: #007bff;
+  text-decoration: none;
+}
+
+/* Nav separators (the " | " parts) */
+.nav-separator {
+  color: #999; /* Lighter gray for separators */
+  font-weight: normal;
+  margin: 0 8px; /* Space around the pipe */
+  user-select: none; /* Prevents accidental text selection */
+}
+
+/* Main content area (Routes wrapper) - Optional global padding */
+main {
+  min-height: calc(100vh - 60px); /* Adjusts for nav height; ensures full height */
+  padding-top: 20px; /* Space below nav */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-nav {
+    padding: 12px 15px;
+    flex-wrap: wrap; /* Allows wrapping if needed */
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    padding: 6px 10px;
+    margin: 0 2px;
+  }
+
+  .nav-separator {
+    margin: 0 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-nav {
+    flex-direction: column; /* Stack links vertically on very small screens */
+    gap: 10px; /* Space between stacked items */
+    padding: 12px;
+  }
+
+  .nav-link {
+    margin: 0;
+    width: 100%; /* Full width on mobile for easier tapping */
+    text-align: center;
+    padding: 10px;
+  }
+
+  .nav-separator {
+    display: none; /* Hide separators when stacked */
+  }
+
+  main {
+    padding-top: 10px;
+  }
+}
